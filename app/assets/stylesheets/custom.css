@@ -1,0 +1,70 @@
+html, body {
+  height: 100%;
+  background-color: #A0A0A0; }
+
+.clangenHeader {
+  background-color: #432E41; }
+
+.subHeader {
+  background-color: #1C2021; }
+
+.clangenLogo {
+  max-height: 120px; }
+
+.uk-navbar-nav li a {
+  line-height: 128px;
+  height: 128px;
+  color: #ECF0F1;
+  font-size: 2em;
+  background: none;
+  border: 0px;
+  text-decoration: none;
+  text-shadow: none; }
+.uk-navbar-nav li a:hover {
+  background: none;
+  border: 0px;
+  text-shadow: none;
+  text-decoration: none; }
+
+.wrapper {
+  min-height: 100%; }
+
+footer {
+  background-color: #0A0A0A; }
+
+footer {
+  padding: 50px; }
+
+.artistThumbnail {
+  height: 150px; }
+
+.artistThumbnailMini {
+  max-height: 100px; }
+
+.playerIcon {
+  height: 50px;
+  margin: 10px; }
+
+.uk-list li, .uk-list-line li {
+  color: #1A1A1A; }
+
+.commentsBlock {
+  background-color: #14161A;
+  min-height: 810px; }
+
+.uk-comment .uk-comment-header {
+  margin-bottom: 0px; }
+.uk-comment .uk-comment-title {
+  color: #3C3741; }
+.uk-comment .uk-comment-body {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 15px;
+  padding-bottom: 15px; }
+
+.uk-panel-box .uk-panel-title {
+  color: #3C3741; }
+
+/*# sourceMappingURL=custom.css.map */

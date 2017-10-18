@@ -1,0 +1,33 @@
+.wrapper
+  .uk-grid
+    .uk-width-1-2
+      .uk-block
+        %h2.uk-clearfix
+          = image_tag("picture.png", :class =>"artistThumbnail uk-align-medium-left", :alt => "Artist art")
+          #{@watchingUser.username}
+      .uk-panel.uk-panel-box
+        %h4.uk-panel-title Collection
+        %ul.uk-thumbnav
+          - for contact in @friendlist
+            %li
+              %a{:href => "/user/#{contact}"}
+                = image_tag("picture.png", :class =>"artistThumbnail", :alt => "Artist art")
+
+    .uk-width-1-2.commentsBlock
+      - if current_user
+        .uk-block
+          %form.uk-form{:action => "/addWallMessage/#{@watchingUser.username}", :method => "post"}
+            .uk-grid
+              %textarea.uk-width-4-5{:name => "messageContent"}
+              %button.uk-icon-comment.uk-icon-medium.uk-width-1-5{:type => "submit", :value => "publicate"}
+      .uk-block
+        %ul.uk-comment-list
+          - for comment in @wallMessages
+            %li
+              %article.uk-comment
+                %header.uk-comment-header
+                  %img.uk-comment-avatar
+                  %h4.uk-comment-title #{comment.messagesender} says...
+                  .uk-comment-meta
+                .uk-comment-body.uk-margin.uk-block
+                  #{comment.messagecontent}

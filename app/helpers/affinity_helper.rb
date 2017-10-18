@@ -1,0 +1,2 @@
+module AffinityHelper
+end

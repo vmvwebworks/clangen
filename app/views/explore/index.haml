@@ -1,0 +1,24 @@
+.wrapper
+  .uk-grid.subHeader
+    .uk-width-1-2.uk-container-center.uk-block
+      %form.uk-form{:action => "/explore/search", :method => "post"}
+        .uk-form-icon
+          %i.uk-icon-search
+          %input.uk-form-large.uk-form-width-large{:placeholder => "Type a keyword", :type => "text", :name => "queryField"}
+          %select.data-uk-margin.uk-form-large{:style => "height: 40px;",:name => "queryType"}
+            %option users
+            %option tracks
+          %button.uk-button{:type => "submit", :style => "height: 40px;"} Search
+  .uk-grid
+    .uk-width-3-4.uk-container-center
+      .uk-grid
+        - for singleUser in @listofusers
+          .uk-width-medium-1-4
+            .uk-panel
+              %figure.uk-overlay.uk-overlay-hover
+                = image_tag("picture.png", :class =>"artistThumbnail", :alt => "Artist art")
+                %figcaption.uk-overlay-panel.uk-flex.uk-flex-center.uk-flex-middle.uk-text-center
+                  %form.uk-form{:action => "/add/#{singleUser.username}", :method => "post"}
+                    %button.uk-icon-user-plus.uk-icon-medium{:type => "submit", :value => "add"}
+
+                    %H4 #{singleUser.username}

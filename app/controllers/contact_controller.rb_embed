@@ -1,0 +1,38 @@
+class ContactController < ApplicationController
+  def addNew
+    @newFriend = params[:username]
+    puts "***value of @newFriend***"
+    puts @newFriend
+    puts "***end****"
+    User.find_by(username: current_user.username) do |user|
+      puts "*** aqui entra justo antes de filtrar o crear***"
+      puts user.contacts
+      if user.contacts(owner: user.id).exists?
+        puts "***despues de comprobar si existe entra***"
+        user.contacts.find_by(owner: user.id) do |contact|
+          puts "***despues de crear el contacto entra***"
+          User.find_by(username: params[:username]) do |friend|
+            puts "*** entra en la comprobación de si existe ya el contacto***"
+            if user.contacts.where(friendlist: friend.id).exists?
+              "***pasa de mi cara***"
+              return redirect_to "/"
+            else
+              puts "***lo va a crear***"
+              contact.push(friendlist: friend.id)
+            end
+          end
+        end
+      else
+        user.contacts.find_or_create_by(owner: user.id) do |contact|
+          puts "*** aqui entra justo antes de encontrar al usuario amigo***"
+          User.find_by(username: params[:username]) do |friend|
+            puts "***entra en friend"
+            puts friend
+            contact.push(friendlist: friend.id)
+          end
+        end
+      end
+    end
+    redirect_to "/"
+  end
+end

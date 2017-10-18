@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    %title Clangen
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    = javascript_include_tag "uikit.js"
+    = stylesheet_link_tag "uikit.css"
+    = stylesheet_link_tag "custom.css"
+  %body
+    = render :file =>"layouts/header"
+    = yield
+    = render :file =>"layouts/footer"

@@ -1,0 +1,30 @@
+.data-uk-sticky
+  %nav.uk-navbar.uk-navbar-attached.clangenHeader
+    %a.uk-navbar-brand
+      = image_tag("gramophone.png", :class =>"clangenLogo", :alt => "Clangen logo")
+    %ul.uk-navbar-nav.uk-hidden-small.uk-navbar-center
+      - if current_user
+        %li.uk-parent{"data-uk-dropdown" => ""}
+          %a{:href => "/"} Profile
+          //%a{:href => "/#{current_user.username}/profile"} Profile
+          .uk-dropdown.uk-dropdown-navbar
+            %ul.uk-nav.uk-nav-navbar
+              %li
+                %a{:href => "/message"} Messages
+              %li
+                %a{:href => "/upload"} Uploads
+        %li.uk-parent
+          %a{:href => "/playlist"} Playlists
+        %li.uk-parent
+          %a{:href => "/affinity"} Affinities
+        %li.uk-parent
+          %a{:href => "/explore"} Explore
+      - else
+        %li.uk-parent
+          %a{:href => "/register"} Welcome to Clangen! Come and enjoy the music
+    %ul.uk-navbar-nav.uk-navbar-flip.uk-hidden-small.uk-text-small
+      %li.uk-parent
+        - if current_user
+          %a{:href => "/logout"} Logout
+        - else
+          %a{:href => "/login"} Login
